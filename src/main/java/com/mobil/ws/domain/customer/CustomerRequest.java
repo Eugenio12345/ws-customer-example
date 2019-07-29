@@ -1,5 +1,8 @@
 package com.mobil.ws.domain.customer;
 
+import javax.persistence.Entity;
+
+@Entity
 public class CustomerRequest {
 
 	private Integer idCliente;
