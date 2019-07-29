@@ -5,12 +5,12 @@
     <display-name>menores</display-name>
  
     <servlet>
-        <servlet-name>menores</servlet-name>
+        <servlet-name>api</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     </servlet>
  
     <servlet-mapping>
-        <servlet-name>menores</servlet-name>
+        <servlet-name>api</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
  
