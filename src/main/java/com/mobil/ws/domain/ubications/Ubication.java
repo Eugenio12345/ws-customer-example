@@ -1,8 +1,5 @@
 package com.mobil.ws.domain.ubications;
 
-import javax.persistence.Entity;
-
-@Entity
 public class Ubication {
 
 	private Integer idUbicacion;
