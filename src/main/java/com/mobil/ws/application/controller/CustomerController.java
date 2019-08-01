@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CustomerController {
 
 	
-	@RequestMapping(method = RequestMethod.GET,value="/consulta")
+	@RequestMapping(method = RequestMethod.GET,value="/consulta",produces = "application/json" )
 	@ResponseBody
 	public String getMessage(){
 		return "hello world";
