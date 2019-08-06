@@ -10,11 +10,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.mobil.ws.domain.customer.CustomerRequest;
 
 @Controller
-@RequestMapping(value = "/accounts")
+@RequestMapping(value = "/api")
 public class CustomerController {
 
-	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	
+	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, value = "/v1/customer/query/{idCustomer}")
 	public ResponseEntity<CustomerRequest>getCustomer(){
 	  CustomerRequest cuRequest = new  CustomerRequest();
 	  cuRequest.setApellidoMaterno("Merino");

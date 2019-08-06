@@ -22,5 +22,7 @@ public class CustomerAggregator<T> {
 		if(object instanceof CustomerRequest){
 			this.customerRepository.save((CustomerRequest)object);
 		}
+		
+		
 	}
 }

@@ -1,5 +1,10 @@
 package com.mobil.ws.application.repository.ubication;
 
-public interface UbicationRepository {
+import org.springframework.data.repository.CrudRepository;
 
+import com.mobil.ws.domain.ubications.Ubication;
+
+public interface UbicationRepository extends CrudRepository<Ubication, Integer>{
+
+	
 }

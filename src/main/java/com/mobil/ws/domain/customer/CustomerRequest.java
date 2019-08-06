@@ -1,10 +1,17 @@
 package com.mobil.ws.domain.customer;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity(name = "CUSTOMER")
 public class CustomerRequest {
 
+	@Id
 	private Integer idCliente;
+	@Column
 	private String nombre;
+	
 	private String apellidoMaterno;
 	private String apellidoPaterno;
 	private String direccion;
@@ -60,6 +67,13 @@ public class CustomerRequest {
 	public void setSerialAntena(String serialAntena) {
 		this.serialAntena = serialAntena;
 	}
-	
-
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "CustomerRequest [idCliente=" + idCliente + ", nombre=" + nombre + ", apellidoMaterno=" + apellidoMaterno
+				+ ", apellidoPaterno=" + apellidoPaterno + ", direccion=" + direccion + ", telefono=" + telefono
+				+ ", serialRouter=" + serialRouter + ", serialAntena=" + serialAntena + "]";
+	}
 }

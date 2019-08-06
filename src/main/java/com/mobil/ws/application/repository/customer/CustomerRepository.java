@@ -9,5 +9,4 @@ import com.mobil.ws.domain.customer.CustomerRequest;
 public interface CustomerRepository extends CrudRepository<CustomerRequest, Integer>{
 
 	  List<CustomerRequest> findByNombre(String nombre);
-
 }
