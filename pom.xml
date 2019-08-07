@@ -16,25 +16,14 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.apache.tomcat</groupId>
-					<artifactId>tomcat-jdbc</artifactId>
-				</exclusion>
-			</exclusions>
+			<groupId>oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0.3</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-			<exclusions>
-				<exclusion>
-					<artifactId>tomcat-embed-el</artifactId>
-					<groupId>org.apache.tomcat.embed</groupId>
-				</exclusion>
-			</exclusions>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -42,14 +31,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
-			<exclusions>
-				<exclusion>
-					<artifactId>tomcat-embed-el</artifactId>
-					<groupId>org.apache.tomcat.embed</groupId>
-				</exclusion>
-			</exclusions>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
 		<dependency>
@@ -57,21 +39,34 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
+		<!-- Dependencies swagger interface -->
 		<dependency>
-			<groupId>org.assertj</groupId>
-			<artifactId>assertj-core</artifactId>
-			<version>2.3.0</version>
-			<scope>test</scope>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.2.2</version><!--$NO-MVN-MAN-VER$ -->
+			<scope>compile</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.2.2</version><!--$NO-MVN-MAN-VER$ -->
+			<scope>compile</scope>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.oracle/ojdbc6 -->
 		<dependency>
 			<groupId>oracle</groupId>
 			<artifactId>ojdbc6</artifactId>
 			<version>11.2.0.3</version>
 		</dependency>
-
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
 	</dependencies>
 
 	<properties>
@@ -84,33 +79,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<skip>true</skip>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<configuration>
-					<source>1.7</source>
-					<doclet>org.asciidoctor.Asciidoclet</doclet>
-					<docletArtifact>
-						<groupId>org.asciidoctor</groupId>
-						<artifactId>asciidoclet</artifactId>
-						<version>${asciidoclet.version}</version>
-					</docletArtifact>
-					<additionalparam>
-						--base-dir ${project.basedir}
-						--attribute
-						"projectName=${project.name}"
-						--attribute
-						"projectVersion=${project.version}"
-						--attribute "doctype=book"
-					</additionalparam>
-					<linksource>true</linksource>
-					<!-- Overview document can also be a Asciidoctor document -->
-					<overview>src/main/java/overview.adoc</overview>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>

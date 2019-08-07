@@ -13,6 +13,15 @@ import com.mobil.ws.domain.customer.CustomerRequest;
 import com.mobil.ws.domain.file.Files;
 import com.mobil.ws.domain.ubications.Ubication;
 
+/**
+ * 
+ * @author RSTNMX0003
+ *
+ *  Clase encargada de obtener todos los repositorios
+ *
+ * @param <T>
+ */
+
 @Component
 public class CustomerAggregator<T> {
 
@@ -24,6 +33,12 @@ public class CustomerAggregator<T> {
 
 	private FileRepository fileRepository;
 
+	/**
+	 * 
+	 * @param customerRepository
+	 * @param ubicationRepository
+	 * @param fileRepository
+	 */
 	@Autowired
 	public CustomerAggregator(CustomerRepository customerRepository, UbicationRepository ubicationRepository,
 			FileRepository fileRepository) {
@@ -32,6 +47,11 @@ public class CustomerAggregator<T> {
 		this.fileRepository = fileRepository;
 	}
 
+	/**
+	 * 
+	 * @param object
+	 * @throws SQLException
+	 */
 	public void saveObject(T object) throws SQLException {
 
 		if (object instanceof CustomerRequest) {
