@@ -1,21 +1,42 @@
 package com.mobil.ws.domain.file;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import com.mobil.ws.domain.customer.Customer;
 
 @Entity(name = "CT_FILES")
 public class Files {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer idArchido;
-	@Column
+	
 	private String fotoCableado;
 	private String fotoAntena;
 	private String fotoRouter;
 	private String fotoAux;
 	private String fotoAux2;
-	private Integer idCliente;
+	
+	@ManyToOne
+	private Customer customer;
+
+	/**
+	 * @return the customer
+	 */
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	/**
+	 * @param customer the customer to set
+	 */
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
 	
 	public Integer getIdArchido() {
 		return idArchido;
@@ -53,14 +74,5 @@ public class Files {
 	public void setFotoAux2(String fotoAux2) {
 		this.fotoAux2 = fotoAux2;
 	}
-	public Integer getIdCliente() {
-		return idCliente;
-	}
-	public void setIdCliente(Integer idCliente) {
-		this.idCliente = idCliente;
-	}
-	
-	
-	
 	
 }

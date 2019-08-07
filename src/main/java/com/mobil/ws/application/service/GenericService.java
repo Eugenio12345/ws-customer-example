@@ -3,7 +3,7 @@ package com.mobil.ws.application.service;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface CustomerService<T> {
+public interface GenericService<T> {
 
 	/**
 	 * Method to save or update
@@ -18,6 +18,8 @@ public interface CustomerService<T> {
 	List<T>getAll();
 	
 	/**
-	 * 
+	 * find one record By Id 
 	 */
+	
+	T findId(Integer id);
 }

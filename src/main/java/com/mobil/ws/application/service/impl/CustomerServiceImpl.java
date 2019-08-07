@@ -7,28 +7,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.mobil.ws.application.aggregator.CustomerAggregator;
-import com.mobil.ws.application.service.CustomerService;
-import com.mobil.ws.domain.customer.CustomerRequest;
+import com.mobil.ws.application.service.GenericService;
+import com.mobil.ws.domain.customer.Customer;
 
 @Component
-public class CustomerServiceImpl implements CustomerService<CustomerRequest> {
+public class CustomerServiceImpl implements GenericService<Customer> {
 
 	
-	CustomerAggregator<CustomerRequest> customerAggregator;
+	CustomerAggregator<Customer> customerAggregator;
 	
 	@Autowired
-	public  CustomerServiceImpl(CustomerAggregator<CustomerRequest> customerAggregator) throws SQLException{
+	public  CustomerServiceImpl(CustomerAggregator<Customer> customerAggregator) throws SQLException{
 		this.customerAggregator = customerAggregator;
 	}
 
 	@Override
-	public void saveOrUpdate(CustomerRequest t) throws SQLException {
-         this.customerAggregator.saveObject(t);
+	public void saveOrUpdate(Customer request) throws SQLException {
+         this.customerAggregator.saveOrUpdate(request);
 	}
 
 	@Override
-	public List<CustomerRequest> getAll() {
+	public List<Customer> getAll() {
 		return customerAggregator.getAll();
+	}
+
+	@Override
+	public Customer findId(Integer id) {
+		return customerAggregator.findById(id);
 	}
 	
 }
