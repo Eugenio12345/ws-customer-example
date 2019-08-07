@@ -1,6 +1,8 @@
 package com.mobil.ws.application.aggregator;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,5 +66,9 @@ public class CustomerAggregator<T> {
 			logger.info("Entrando a ...-----" + object);
 			this.fileRepository.save((Files) object);
 		}
+	}
+	
+	public List<CustomerRequest>getAll(){
+		return (List<CustomerRequest>) this.customerRepository.findAll();
 	}
 }

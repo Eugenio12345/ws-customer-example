@@ -1,15 +1,23 @@
 package com.mobil.ws.application.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import java.sql.SQLException;
+import java.util.List;
 
-import com.mobil.ws.application.aggregator.CustomerAggregator;
+public interface CustomerService<T> {
 
-@Component
-public class CustomerService {
-
-	@Autowired
-	CustomerAggregator customerAggregator;
+	/**
+	 * Method to save or update
+	 * @param t
+	 */
+	void saveOrUpdate(T t)throws SQLException;
 	
+	/**
+	 * Method for get all Records
+	 * @return
+	 */
+	List<T>getAll();
 	
+	/**
+	 * 
+	 */
 }
