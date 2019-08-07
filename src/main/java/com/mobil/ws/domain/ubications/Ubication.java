@@ -1,8 +1,15 @@
 package com.mobil.ws.domain.ubications;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity(name = "CT_UBICATION")
 public class Ubication {
 
+	@Id
 	private Integer idUbicacion;
+	@Column
 	private double longitug;
 	private double latitud;
 	private Integer idCliente;

@@ -1,9 +1,15 @@
 package com.mobil.ws.domain.file;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity(name = "CT_FILES")
 public class Files {
 
-	
+	@Id
 	private Integer idArchido;
+	@Column
 	private String fotoCableado;
 	private String fotoAntena;
 	private String fotoRouter;
