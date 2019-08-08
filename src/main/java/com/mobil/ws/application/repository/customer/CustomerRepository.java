@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface CustomerRepository<T> extends CrudRepository<T, Integer>{
+import com.mobil.ws.domain.customer.Customer;
 
-	  List<T> findByNombre(String nombre);
+@Repository
+public interface CustomerRepository extends CrudRepository<Customer, Integer>{
+
+	  List<Customer> findByNombre(String nombre);
 }
