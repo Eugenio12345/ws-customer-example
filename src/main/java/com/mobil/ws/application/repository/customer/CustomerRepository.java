@@ -10,5 +10,5 @@ import com.mobil.ws.domain.customer.Customer;
 @Repository
 public interface CustomerRepository extends CrudRepository<Customer, Integer>{
 
-	  List<Customer> findByNombre(String nombre);
+	  List<Customer> findAllCustomer();
 }

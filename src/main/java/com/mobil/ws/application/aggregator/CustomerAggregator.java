@@ -52,7 +52,7 @@ public class CustomerAggregator<T> {
 	
 	@SuppressWarnings("unchecked")
 	public List<T>getAll(){
-		return (List<T>) this.customerRepository.findAll();
+		return (List<T>) this.customerRepository.findAllCustomer();
 	}
 	
 	@SuppressWarnings("unchecked")

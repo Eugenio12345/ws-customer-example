@@ -8,46 +8,53 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.mobil.ws.domain.file.Files;
 import com.mobil.ws.domain.ubications.Ubication;
 
-@Entity(name = "CT_CUSTOMER")
+@Table(name = "CT_CUSTOMER")
+@Entity
+@NamedQuery(name = "Customer.findAllCustomer", query = "from Customer c inner join  c.listFiles inner join c.listUbications")
 public class Customer {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name ="ID_CLIENTE")
+	@Column(name = "ID_CLIENTE")
 	private Integer idCliente;
-	
+
 	@Column(name = "NOMBRE")
 	private String nombre;
 
 	@Column(name = "APELLIDO_MATERNO")
 	private String apellidoMaterno;
-	
-	@Column(name  = "APELLIDO_PATERNO")
+
+	@Column(name = "APELLIDO_PATERNO")
 	private String apellidoPaterno;
-	
+
 	@Column(name = "DIRECCION")
 	private String direccion;
-	
+
 	@Column(name = "TELEFONO")
 	private String telefono;
-	
+
 	@Column(name = "SERIAL_ROUTER")
 	private String serialRouter;
-	
+
 	@Column(name = "SERIAL_ANTENA")
 	private String serialAntena;
 
+	@JsonBackReference
 	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-	private List<Files>listFiles;
-	
+	private List<Files> listFiles;
+
+	@JsonBackReference
 	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-	private List<Ubication>listUbications;
-	
+	private List<Ubication> listUbications;
+
 	/**
 	 * @return the listFiles
 	 */
@@ -56,7 +63,8 @@ public class Customer {
 	}
 
 	/**
-	 * @param listFiles the listFiles to set
+	 * @param listFiles
+	 *            the listFiles to set
 	 */
 	public void setListFiles(List<Files> listFiles) {
 		this.listFiles = listFiles;
@@ -70,7 +78,8 @@ public class Customer {
 	}
 
 	/**
-	 * @param listUbications the listUbications to set
+	 * @param listUbications
+	 *            the listUbications to set
 	 */
 	public void setListUbications(List<Ubication> listUbications) {
 		this.listUbications = listUbications;
@@ -151,12 +160,12 @@ public class Customer {
 				+ ", apellidoPaterno=" + apellidoPaterno + ", direccion=" + direccion + ", telefono=" + telefono
 				+ ", serialRouter=" + serialRouter + ", serialAntena=" + serialAntena + "]";
 	}
-	
+
 	/**
 	 * New Instance
 	 */
-	public Customer(){
-		
+	public Customer() {
+
 	}
 
 	/**
@@ -186,6 +195,5 @@ public class Customer {
 		this.listFiles = listFiles;
 		this.listUbications = listUbications;
 	}
-	
-	
+
 }
