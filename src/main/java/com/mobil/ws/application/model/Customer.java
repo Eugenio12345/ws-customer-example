@@ -1,64 +1,39 @@
-package com.mobil.ws.domain.customer;
+package com.mobil.ws.application.model;
 
-import java.util.List;
+import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.mobil.ws.domain.file.Files;
 import com.mobil.ws.domain.ubications.Ubication;
 
-@Table(name = "CT_CUSTOMER")
-@Entity
-@NamedQuery(name = "Customer.findAllCustomer", query = "from Customer c inner join  c.listFiles inner join c.listUbications")
 public class Customer {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "ID_CLIENTE")
+	
 	private Integer idCliente;
 
-	@Column(name = "NOMBRE")
 	private String nombre;
 
-	@Column(name = "APELLIDO_MATERNO")
 	private String apellidoMaterno;
 
-	@Column(name = "APELLIDO_PATERNO")
 	private String apellidoPaterno;
 
-	@Column(name = "DIRECCION")
 	private String direccion;
 
-	@Column(name = "TELEFONO")
 	private String telefono;
 
-	@Column(name = "SERIAL_ROUTER")
 	private String serialRouter;
 
-	@Column(name = "SERIAL_ANTENA")
 	private String serialAntena;
 
-	@JsonBackReference
-	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-	private List<Files> listFiles;
+	
+	private Set<Files> listFiles;
 
-	@JsonBackReference
-	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-	private List<Ubication> listUbications;
+	
+	private Set<Ubication> listUbications;
 
 	/**
 	 * @return the listFiles
 	 */
-	public List<Files> getListFiles() {
+	public Set<Files> getListFiles() {
 		return listFiles;
 	}
 
@@ -66,14 +41,14 @@ public class Customer {
 	 * @param listFiles
 	 *            the listFiles to set
 	 */
-	public void setListFiles(List<Files> listFiles) {
+	public void setListFiles(Set<Files> listFiles) {
 		this.listFiles = listFiles;
 	}
 
 	/**
 	 * @return the listUbications
 	 */
-	public List<Ubication> getListUbications() {
+	public Set<Ubication> getListUbications() {
 		return listUbications;
 	}
 
@@ -81,7 +56,7 @@ public class Customer {
 	 * @param listUbications
 	 *            the listUbications to set
 	 */
-	public void setListUbications(List<Ubication> listUbications) {
+	public void setListUbications(Set<Ubication> listUbications) {
 		this.listUbications = listUbications;
 	}
 
@@ -181,8 +156,8 @@ public class Customer {
 	 * @param listUbications
 	 */
 	public Customer(Integer idCliente, String nombre, String apellidoMaterno, String apellidoPaterno, String direccion,
-			String telefono, String serialRouter, String serialAntena, List<Files> listFiles,
-			List<Ubication> listUbications) {
+			String telefono, String serialRouter, String serialAntena, Set<Files> listFiles,
+			Set<Ubication> listUbications) {
 		super();
 		this.idCliente = idCliente;
 		this.nombre = nombre;
@@ -196,4 +171,6 @@ public class Customer {
 		this.listUbications = listUbications;
 	}
 
+	
+	
 }

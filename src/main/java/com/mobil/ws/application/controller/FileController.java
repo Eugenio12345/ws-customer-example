@@ -12,23 +12,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mobil.ws.application.service.GenericService;
-import com.mobil.ws.domain.ubications.Ubication;
+import com.mobil.ws.domain.file.Files;
 
 @Controller
 @RequestMapping(value = "/api")
-public class UbicationController {
+public class FileController {
 
-	private GenericService<Ubication>genericService;
+	private GenericService<Files> genericService;
 	
 	@Autowired
-	public UbicationController(GenericService<Ubication>genericService){
+	public FileController(GenericService<Files> genericService){
 		this.genericService = genericService;
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, value = "/v1/ubication/save")
-	public ResponseEntity<Void>saveUbication(@RequestBody Ubication ubication) throws SQLException{
-		this.genericService.saveOrUpdate(ubication);
+	@RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, value = "/v1/files/save")
+    public ResponseEntity<Void>saveFile(@RequestBody Files files) throws SQLException{
+		this.genericService.saveOrUpdate(files);
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
-
 }

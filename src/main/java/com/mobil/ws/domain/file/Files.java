@@ -7,9 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
-import com.mobil.ws.domain.customer.Customer;
+import com.mobil.ws.domain.customer.CustomerDto;
 
 @Entity(name = "CT_FILES")
 public class Files {
@@ -34,21 +34,21 @@ public class Files {
 	@Column(name = "FOTO_AUX2")
 	private String fotoAux2;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_CLIENTE")
-	private Customer customer;
+	private CustomerDto customer;
 
 	/**
 	 * @return the customer
 	 */
-	public Customer getCustomer() {
+	public CustomerDto getCustomer() {
 		return customer;
 	}
 
 	/**
 	 * @param customer the customer to set
 	 */
-	public void setCustomer(Customer customer) {
+	public void setCustomer(CustomerDto customer) {
 		this.customer = customer;
 	}
 	
@@ -107,7 +107,7 @@ public class Files {
 	 * @param customer
 	 */
 	public Files(Integer idArchido, String fotoCableado, String fotoAntena, String fotoRouter, String fotoAux,
-			String fotoAux2, Customer customer) {
+			String fotoAux2, CustomerDto customer) {
 		super();
 		this.idArchido = idArchido;
 		this.fotoCableado = fotoCableado;

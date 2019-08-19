@@ -22,4 +22,10 @@ public interface GenericService<T> {
 	 */
 	
 	T findId(Integer id);
+	
+	/**
+	 * Method for delete to object
+	 */
+	
+	void deleteRecord(T t);
 }

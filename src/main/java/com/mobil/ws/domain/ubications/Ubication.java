@@ -7,9 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
-import com.mobil.ws.domain.customer.Customer;
+import com.mobil.ws.domain.customer.CustomerDto;
 
 @Entity(name = "CT_UBICATION")
 public class Ubication {
@@ -25,21 +25,21 @@ public class Ubication {
 	@Column(name = "LATITUD")
 	private double latitud;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_CLIENTE")
-	private Customer customer;
+	private CustomerDto customer;
 
 	/**
 	 * @return the customer
 	 */
-	public Customer getCustomer() {
+	public CustomerDto getCustomer() {
 		return customer;
 	}
 
 	/**
 	 * @param customer the customer to set
 	 */
-	public void setCustomer(Customer customer) {
+	public void setCustomer(CustomerDto customer) {
 		this.customer = customer;
 	}
 
@@ -80,7 +80,7 @@ public class Ubication {
 	 * @param latitud
 	 * @param customer
 	 */
-	public Ubication(Integer idUbicacion, double longitug, double latitud, Customer customer) {
+	public Ubication(Integer idUbicacion, double longitug, double latitud, CustomerDto customer) {
 		super();
 		this.idUbicacion = idUbicacion;
 		this.longitug = longitug;
