@@ -12,12 +12,6 @@
     <mvc:annotation-driven />
  
     <!-- For the Stereotype annotations to work -->
-    <context:component-scan base-package="com.banamex.menores.rest.component" />
-    <context:component-scan base-package="com.banamex.menores.rest.controller" />
-    <context:component-scan base-package="com.banamex.menores.rest.dto" />
-    <context:component-scan base-package="com.banamex.menores.rest.repository" />
-    <context:component-scan base-package="com.banamex.menores.rest.service" />
-    <context:component-scan base-package="com.banamex.menores.restClient.procesar.menores" />
-    <context:component-scan base-package="com.banamex.menores.restClient.procesar.service" />
+    <context:component-scan base-package="com.mobil.ws.application" />
     
 </beans>
